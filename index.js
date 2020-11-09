@@ -105,7 +105,7 @@ Toolkit.run(async tools => {
         'but that doesnt matter because you dont need that git commit, thats only for "actions/checkout@v1"')
     }
 
-    const remoteRepo = `https://${process.env.GITHUB_FULL_TOKEN}@github.com/${process.env.GITHUB_REPOSITORY}.git`
+    const remoteRepo = `https://${process.env.FULL_GITHUB_TOKEN}@github.com/${process.env.GITHUB_REPOSITORY}.git`
     if (process.env['INPUT_SKIP-TAG'] !== 'true') {
       await tools.runInWorkspace('git', ['tag', newVersion])
       await tools.runInWorkspace('git', ['push', remoteRepo, '--follow-tags'])
